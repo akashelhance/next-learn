@@ -1,29 +1,27 @@
 "use client"
+import Link from 'next/link'
 
-import Image from 'next/image'
+import {useRouter} from 'next/navigation'
+
 
 export default function Home() {
-  const apple =(item)=>{
-      alert (item)
+  const router = useRouter();
+  const navigate=(name)=>{
+    router.push(name)
   }
   return (
-    
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main>
+     <h1>Basic Routing | Make New Page</h1> 
+     <Link href="/login" >Go to Login Page</Link>
+     <br />
+     <br />
+     <Link href="/about" >Go to About Page</Link>
+     <br />
+     <br />
+     <button onClick={()=>navigate("/login")} >Go to Login Page</button>
+     <button onClick={()=>navigate("/about")} >Go to About Page</button>
 
-      <User name= "akash"/>
-      <User name="ghost"/>
-      <User name= "harry"/>
 
-      <h1>hello learn next js</h1>
-      <button onClick={()=>apple("This is fruit")}>Click Me</button>
     </main>
-  )
-}
-
-const User =(props)=>{
-  return (
-    <div>
-      <h3>Hello this is User componemts dyanmic name - {props.name}</h3>
-    </div>
   )
 }
